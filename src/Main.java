@@ -1,4 +1,4 @@
-import br.com.projeto.dominio.Mentoring;
+import br.com.projeto.dominio.*;
 import br.com.projeto.dominio.Module;
 
 import java.time.LocalDate;
@@ -40,14 +40,48 @@ public class Main {
         mentoring.setDescription("Description");
         mentoring.setDate(LocalDate.now());
 
-        System.out.println(module1);
+        /*System.out.println(module1);
         System.out.println(module2);
         System.out.println(module3);
         System.out.println(module4);
         System.out.println(module5);
         System.out.println(module6);
 
-        System.out.println(mentoring);
+        System.out.println(mentoring);*/
+
+        Program program = new Program();
+        program.setName("Programa trilha backEnd Polo Tech");
+        program.setDescription("Description");
+        program.getContent().add(module1);
+        program.getContent().add(module2);
+        program.getContent().add(module3);
+        program.getContent().add(module4);
+        program.getContent().add(module5);
+        program.getContent().add(module6);
+        program.getContent().add(mentoring);
+
+        Developer developerJoni = new Developer();
+        developerJoni.setName("Joni Ms");
+        developerJoni.setAddress("Address");
+        developerJoni.setCep("852639-89");
+        developerJoni.setCpf("000.000.000.00");
+        developerJoni.setEmail("joni@gmail.com");
+        developerJoni.setPhone("(xx)xx x xxxx-xxxx");
+        developerJoni.registerProgram(program);
+        System.out.println("Daddos do aluno: " + developerJoni.getName() +
+                ", cpf: " + developerJoni.getCpf() + ", telefone: " + developerJoni.getPhone() +
+                ", email: " + developerJoni.getEmail() +
+                ", endereço: " + developerJoni.getAddress() +
+                ", cep: " + developerJoni.getCep());
+        System.out.println("Conteúdos inscritos: " + developerJoni.getSubscribedContents());
+
+        developerJoni.progress();
+        developerJoni.progress();
+
+        System.out.println("Conteúdos inscritos: " + developerJoni.getSubscribedContents());
+        System.out.println("Conteúdos concluídos: " + developerJoni.getCompletedContents());
+        System.out.println("Total de Pontos: " + developerJoni.calculateTotalConclusion());
+
 
     }
 }

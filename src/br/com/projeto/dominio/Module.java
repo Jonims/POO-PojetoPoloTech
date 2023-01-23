@@ -1,31 +1,11 @@
 package br.com.projeto.dominio;
 
-public class Module {
-
-    private String title;
-
-    private String description;
+public class Module extends Content{
 
     private int workload;
 
     public Module() {
 
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public int getWorkload() {
@@ -39,9 +19,14 @@ public class Module {
     @Override
     public String toString() {
         return "Module{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
+                "title='" + getTitle() + '\'' +
+                ", description='" + getDescription() + '\'' +
                 ", workload=" + workload +
                 '}';
+    }
+
+    @Override
+    public double calculateConclusion() {
+        return CONCLUSION * workload;
     }
 }
